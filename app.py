@@ -41,5 +41,5 @@ st.title("AI Financial & Web Search Assistant")
 query = st.text_input("Enter your query:")
 
 if st.button("Get Response"):
-    response = team_leader_agent.run(query)
+    response = team_leader_agent.print_response(query)
     st.markdown(response)
