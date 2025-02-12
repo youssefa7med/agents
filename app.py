@@ -36,10 +36,17 @@ team_leader_agent = Agent(
 )
 
 # Streamlit UI
-st.title("AI Financial & Web Search Assistant")
+st.title("📊 AI Financial & Web Search Assistant")
 
-query = st.text_input("Enter your query:")
+st.markdown("""
+### 🔍 How It Works
+1. Enter your query in the text box below.
+2. Click **Get Response** to receive financial insights or web search results.
+3. The AI will format responses in markdown with tables for easy readability.
+""")
 
-if st.button("Get Response"):
+query = st.text_input("💬 Enter your query:")
+
+if st.button("🚀 Get Response"):
     response = team_leader_agent.print_response(query)
-    st.markdown(response)
+    st.markdown(f"### 🤖 Response:\n{response}")
