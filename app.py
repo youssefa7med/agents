@@ -58,7 +58,7 @@ team_leader_agent = Agent(
         'Always include sources.',
         'Use tables to display data.',
         'You are a financial assistant.',
-        'Only respond to finance-related questions.',
+        'Only respond to finance-related questions.','if you don\'t know the name of company search on it first',
         "If a query is not related to finance, reply: 'I specialize in financial topics. Please ask me about stock markets, investments, or financial data.'",
         'Summarize insights concisely but provide sufficient details for understanding.',
         'Use markdown formatting to make information clear and visually appealing.',
@@ -84,7 +84,7 @@ st.markdown("""
 query = st.text_input("💬 Enter your query:")
 
 if st.button("🚀 Get Response"):
-    response = team_leader_agent.run(query)
+    response = team_leader_agent.run(query).content
     if response:
         st.markdown("""### 🤖 Response:""")
         st.markdown(response, unsafe_allow_html=True)
