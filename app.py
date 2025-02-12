@@ -58,12 +58,12 @@ st.set_page_config(page_title="Chat Bot", initial_sidebar_state='expanded', page
 
 st.title("📊 AI Financial & Web Search Assistant")
 
-st.sidebar.title("⚙️ Options")
-if st.sidebar.button("🗑️ Clear Chat History"):
-    st.session_state.history = []
+# st.sidebar.title("⚙️ Options")
+# if st.sidebar.button("🗑️ Clear Chat History"):
+#     st.session_state.history = []
 
-if "history" not in st.session_state:
-    st.session_state.history = []
+# if "history" not in st.session_state:
+#     st.session_state.history = []
 
 st.markdown("""
 ### 🔍 How It Works
@@ -87,7 +87,7 @@ if prompt:
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("assistant"):
-        response = team_leader_agent.run(prompt).content + "\n\nDo you want any more help? 😊"
+        response = team_leader_agent.run(prompt).content 
         st.markdown(response)
         st.session_state.messages.append({"role": "assistant", "content": response})
 
