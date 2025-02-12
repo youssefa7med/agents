@@ -32,7 +32,9 @@ team_leader_agent = Agent(
     name='Leader Tool',
     team=[web_search_agent, finance_agent],
     markdown=True,
-    instructions=['Always include sources', 'Use tables to display data', 'You are a helpful assistant']
+    instructions=['Always include sources', 'Use tables to display data', 'You are a helpful assistant',"You are a financial assistant. Only respond to finance-related questions.",
+        "If a query is not related to finance, reply: 'I specialize in financial topics. Please ask me about stock markets, investments, or financial data.'",
+        "Ensure responses are well-structured and easy to read."]
 )
 
 # Streamlit UI
