@@ -58,7 +58,7 @@ st.set_page_config(page_title="Chat Bot", initial_sidebar_state='expanded', page
 st.title("📊 AI Financial & Web Search Assistant")
 
 st.sidebar.title("⚙️ Options")
-if st.sidebar.button("🗑️ Clear History"):
+if st.sidebar.button("🗑️ Clear Chat History"):
     st.session_state.history = []
 
 if "history" not in st.session_state:
@@ -66,22 +66,29 @@ if "history" not in st.session_state:
 
 st.markdown("""
 ### 🔍 How It Works
-1. Enter your query in the text box below.
-2. Click **Send** to receive financial insights or web search results.
+1. Enter your query in the chat box below.
+2. Press Enter to receive financial insights or web search results.
 3. The AI will format responses in markdown with tables for easy readability.
 """)
 
-query = st.text_input("💬 Enter your query:")
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-if st.button("🚀 Send"):
-    response = team_leader_agent.run(query).content
-    if response:
-        st.session_state.history.append(("You", query))
-        st.session_state.history.append(("🤖 AI", response))
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
 
-st.markdown("""### 💬 Chat History:""")
-for sender, msg in st.session_state.history:
-    st.markdown(f"**{sender}:** {msg}")
+prompt = st.chat_input("Ask your financial question:")
+if prompt:
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+    with st.chat_message("assistant"):
+        response = team_leader_agent.run(prompt).content
+        st.markdown(response)
+        st.session_state.messages.append({"role": "assistant", "content": response})
 
 css_code = """
 body {
