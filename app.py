@@ -48,5 +48,9 @@ st.markdown("""
 query = st.text_input("💬 Enter your query:")
 
 if st.button("🚀 Get Response"):
-    response = team_leader_agent.print_response(query)
-    st.markdown(f"### 🤖 Response:\n{response}")
+    response = team_leader_agent.run(query)
+    if response:
+        st.markdown("""### 🤖 Response:""")
+        st.markdown(response, unsafe_allow_html=True)
+    else:
+        st.warning("No response received. Please check your query or try again.")
