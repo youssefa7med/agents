@@ -1,5 +1,5 @@
 streamlit
-phi
+phidata
 #openai
 groq
 yfinance
