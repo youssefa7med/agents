@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
+# from streamlit_lottie import st_lottie
 from phi.agent import Agent
 from phi.model.groq import Groq
 from phi.tools.duckduckgo import DuckDuckGo
@@ -11,14 +11,14 @@ import requests
 load_dotenv()
 
 # Function to load Lottie animation
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+# def load_lottieurl(url: str):
+#     r = requests.get(url)
+#     if r.status_code != 200:
+#         return None
+#     return r.json()
 
 # Load animation
-animation = load_lottieurl('https://lottie.host/2beb66cb-6095-45fe-9f80-155888df4164/2XziOiTtfH.json')
+# animation = load_lottieurl('https://lottie.host/2beb66cb-6095-45fe-9f80-155888df4164/2XziOiTtfH.json')
 
 # Create agents
 finance_agent = Agent(
@@ -71,8 +71,8 @@ st.set_page_config(page_title="Chat Bot", initial_sidebar_state='collapsed', pag
 st.title("📊 AI Financial & Web Search Assistant")
 
 # Display animation
-if animation:
-    st_lottie(animation, speed=0.99, quality='high', height=700, width=700)
+# if animation:
+#     st_lottie(animation, speed=0.99, quality='high', height=700, width=700)
 
 st.markdown("""
 ### 🔍 How It Works
