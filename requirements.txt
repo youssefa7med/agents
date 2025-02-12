@@ -1,6 +1,6 @@
 streamlit
 phi
-openai
+#openai
 groq
 yfinance
 duckduckgo-search
