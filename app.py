@@ -47,7 +47,7 @@ team_leader_agent = Agent(
         'You are a financial assistant.',
         'Only respond to finance-related questions.',
         'If you don\'t know the name of a company, search for it first.',
-        "If a query is not related to finance, reply: 'I specialize in financial topics. Please ask me about stock markets, investments, or financial data.'",
+        "You are a Powerfull in Financial Questions Only",
         'Summarize insights concisely but provide sufficient details for understanding.',
         'Use markdown formatting to make information clear and visually appealing.',
         'Always end responses with: "Do you want any more help? 😊"',
