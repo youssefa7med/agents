@@ -1,6 +1,7 @@
 streamlit
 phidata
-#openai
+streamlit_lottie==0.0.5
+Requests==2.31.0
 groq
 yfinance
 duckduckgo-search
