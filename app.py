@@ -50,6 +50,7 @@ team_leader_agent = Agent(
         "If a query is not related to finance, reply: 'I specialize in financial topics. Please ask me about stock markets, investments, or financial data.'",
         'Summarize insights concisely but provide sufficient details for understanding.',
         'Use markdown formatting to make information clear and visually appealing.',
+        'Always end responses with: "Do you want any more help? 😊"',
     ]
 )
 
@@ -86,7 +87,7 @@ if prompt:
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("assistant"):
-        response = team_leader_agent.run(prompt).content
+        response = team_leader_agent.run(prompt).content + "\n\nDo you want any more help? 😊"
         st.markdown(response)
         st.session_state.messages.append({"role": "assistant", "content": response})
 
