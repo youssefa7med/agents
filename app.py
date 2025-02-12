@@ -48,7 +48,7 @@ st.markdown("""
 query = st.text_input("💬 Enter your query:")
 
 if st.button("🚀 Get Response"):
-    response = team_leader_agent.run(query)
+    response = team_leader_agent.run(query).content
     if response:
         st.markdown("""### 🤖 Response:""")
         st.markdown(response, unsafe_allow_html=True)
